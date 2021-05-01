@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -34,7 +35,9 @@ AppAsset::register($this);
                     <a href="<?php echo Yii::$app->request->baseUrl ?>" . "../category/index.php">На главную</a>
                     <a href="google.com">Вход в админку</a>
                     <a href="#">Корзина</a>
-                    <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
+                    <form action="<?= URL::to(['category/search']) ?>" method="get">
+                        <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
+                    </form>
                 </div>
             </div>
         </header>
