@@ -38,4 +38,9 @@ class Good extends ActiveRecord
         //name -> where to find, search -> what to find
         return $searchResult;
     }
+
+    public function getOneGood(string $name)
+    {
+        return Good::find()->where(['link_name' => $name])->one();
+    }
 }
