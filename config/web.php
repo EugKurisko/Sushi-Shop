@@ -49,7 +49,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'category/<category>' => 'category/view',
-                'GET <controller:[\w-]+>' => '<controller>/search'
+                'good/<name>' => 'good/index',
+                'GET <controller:[\w-]+>' => '<controller>/search',
             ],
         ],
     ],
