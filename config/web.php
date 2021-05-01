@@ -47,7 +47,10 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                'category/<category>' => 'category/view',
+                'GET <controller:[\w-]+>' => '<controller>/search'
+            ],
         ],
     ],
     'params' => $params,
