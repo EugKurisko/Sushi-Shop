@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <div class="container">
     <div class="row justify-content-md-center">
 
@@ -14,7 +18,8 @@
                 <div class="product-descr"><?= $good['descr'] ?></div>
                 <div class="product-price">Цена: <?= $good['price'] ?> гривен</div>
                 <div class="product-buttons">
-                    <button type="button" class="product-button__add btn btn-success">Заказать</button>
+                    <!-- <button type="button" class="product-button__add btn btn-success">Заказать</button> -->
+                    <a href="<?= URL::to(['cart/cart', 'category' => $good['category']]) ?>" data-name="<?= $good['link_name'] ?>" type="button" class="product-button__add btn btn-success">Заказать</a>
                 </div>
             </div>
         </div>
