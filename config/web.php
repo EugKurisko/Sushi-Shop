@@ -8,6 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'category/index',
+    'language' => 'russian',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -48,9 +49,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'category/<category>' => 'category/view',
-                'good/<name>' => 'good/index',
-                'GET <controller:[\w-]+>' => '<controller>/search',
+                'category' => 'category/view',
+                'good' => 'good/index',
+                //'GET <controller:[\w-]+>' => '<controller>/search',
+                'search' => 'category/search'
             ],
         ],
     ],
