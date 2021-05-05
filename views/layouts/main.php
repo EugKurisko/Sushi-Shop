@@ -34,7 +34,8 @@ AppAsset::register($this);
                 <div class="header">
                     <a href="<?php echo Yii::$app->request->baseUrl ?>" . "../category/index.php">На главную</a>
                     <a href="google.com">Вход в админку</a>
-                    <a href="#" class="cart" onclick="openCart(event)">Корзина</a>
+                    <a href="#" class="cart" onclick="openCart(event)">Корзина <span class="menu-quantity">(<?php if (isset($_SESSION['cart.totalQuantity'])) echo $_SESSION['cart.totalQuantity'];
+                                                                                                            else echo '0'; ?>)</span></a>
                     <form action="<?= URL::to(['category/search']) ?>" method="get">
                         <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                     </form>
@@ -53,6 +54,12 @@ AppAsset::register($this);
         </footer>
     </section>
     <div id="cart" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">hi
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <div id="order" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">hi
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
             </div>
