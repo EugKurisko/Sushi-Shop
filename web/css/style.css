@@ -99,3 +99,7 @@ header {
 .header {
     justify-content: space-around;
 }
+
+.modal-content{
+    padding: 10px 25px;
+}
