@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\OrderGood;
 use Yii;
 
 class Order extends \yii\db\ActiveRecord
@@ -16,8 +17,14 @@ class Order extends \yii\db\ActiveRecord
         return [
             [['name', 'email', 'phone', 'address'], 'required'],
             [['email'], 'email'],
-            [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            [['name', 'email', 'phone', 'address', 'status'], 'string', 'max' => 255],
         ];
+    }
+
+    public function getOrderGoods() //bind two db tables
+    {
+        return $this->hasMany(OrderGood::class, ['order_id' => 'id']); //bind order_id with id from in two tables
+        //hasMany -> relation one to many 
     }
 
     public function attributeLabels()
