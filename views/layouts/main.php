@@ -33,7 +33,14 @@ AppAsset::register($this);
             <div class="container">
                 <div class="header">
                     <a href="<?php echo Yii::$app->request->baseUrl ?>" . "../category/index.php">На главную</a>
-                    <a href="google.com">Вход в админку</a>
+                    <?php if (!Yii::$app->user->isGuest) : ?>
+                        <a href="<?= Url::to(['admin/index']) ?>">Админка</a>
+                    <?php endif; ?>
+                    <?php if (Yii::$app->user->isGuest) : ?>
+                        <a href="<?= Url::to(['admin/login']) ?>">Вход в админку</a>
+                    <?php else : ?>
+                        <a href="<?= Url::to(['admin/logout']) ?>">Выход из админки</a>
+                    <?php endif; ?>
                     <a href="#" class="cart" onclick="openCart(event)">Корзина <span class="menu-quantity">(<?php if (isset($_SESSION['cart.totalQuantity'])) echo $_SESSION['cart.totalQuantity'];
                                                                                                             else echo '0'; ?>)</span></a>
                     <form action="<?= URL::to(['category/search']) ?>" method="get">
